@@ -28,7 +28,7 @@ X_train = np.reshape(X_train, (len(X_train), 1, 1))
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
-
+from keras.models import load_model
 # Initialising the RNN
 regressor = Sequential()
 
@@ -43,6 +43,8 @@ regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 
 # Fitting the RNN to the Training set
 regressor.fit(X_train, y_train, batch_size = 5, epochs = 100)
+
+regressor.save('bitcoin_rnn_model')
 
 # Making the predictions
 test_set = df_test.values
