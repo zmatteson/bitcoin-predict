@@ -10,8 +10,9 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
 from keras.models import load_model
-
+from btc.models import Price
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    
+    return HttpResponse(Price.objects.all())
