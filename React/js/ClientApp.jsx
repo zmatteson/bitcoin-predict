@@ -1,21 +1,16 @@
+// @flow
+
 import React from 'react';
 import { render } from 'react-dom';
+import App from './App';
 
-const ce = React.createElement;
-
-const MyTitle = function(props) {
-  return ce('div', null, ce('h1', { style: { color: props.color } }, props.title));
+const renderApp = () => {
+  render(<App />, document.getElementById('app'));
 };
+renderApp();
 
-const MyFirstComponent = function() {
-  return ce(
-    'div',
-    { id: 'my-first-component' },
-    ce(MyTitle, { title: 'Game of Thrones', color: 'YellowGreen' }),
-    ce(MyTitle, { title: 'Stranger Things', color: 'GreenYellow' }),
-    ce(MyTitle, { title: 'Rick and Morty', color: 'LimeGreen' }),
-    ce(MyTitle, { title: 'House of Cards', color: 'peru' })
-  );
-};
-
-render(ce(MyFirstComponent), document.getElementById('app'));
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    renderApp();
+  });
+}

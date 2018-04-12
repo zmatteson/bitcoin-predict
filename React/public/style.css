@@ -439,7 +439,7 @@ html {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url(/public/img/3.jpg);
+  background-color:rgba(192,192,192,0.3);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -461,7 +461,7 @@ html {
 
 .landing > h1 {
   color: #B10DC9;
-  font-family: Skia;
+  font-family: "Courier New";
   font-weight: normal;
 }
 
@@ -609,9 +609,9 @@ header {
 }
 
 header > h1 {
-  font-family: Skia;
+  font-family: "Courier New";
   font-weight: normal;
-  color: #B10DC9;
+  color: #686b65;
   margin: 0;
 }
 
@@ -621,6 +621,7 @@ header > h1 > a {
 }
 
 header > h2 {
+  font-family: "Courier New";
   font-weight: normal;
   margin: 0;
 }
