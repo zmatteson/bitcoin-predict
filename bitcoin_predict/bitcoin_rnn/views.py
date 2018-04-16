@@ -14,5 +14,4 @@ from btc.models import Price
 
 
 def index(request):
-    
-    return HttpResponse(Price.objects.all())
+    return HttpResponse(Price.objects.all().order_by('?')[:10])
