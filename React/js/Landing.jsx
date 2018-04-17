@@ -18,6 +18,8 @@ const Landing = () => (
 			on a line graph.
 		</p>
 		<Chart />
+		<Chart />
+		<Chart />
 	</div>
 );
 

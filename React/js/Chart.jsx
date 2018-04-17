@@ -1,36 +1,32 @@
-// @flow
+import React from 'react';
+import { HorizontalBar } from 'react-chartjs-2';
 
-import React, { Component } from 'react';
-import styled from 'styled-components';
+const data = {
+	labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
+	datasets: [
+		{
+			label: 'My First dataset',
+			backgroundColor: 'rgba(255,99,132,0.2)',
+			borderColor: 'rgba(255,99,132,1)',
+			borderWidth: 1,
+			hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+			hoverBorderColor: 'rgba(255,99,132,1)',
+			data: [65, 59, 80, 81, 56, 55, 45, 80, 100]
+		}
+	]
+};
 
-const Wrapper = styled.div`
-	width: 100%;
-	border: 2px solid #333;
-	border-radius: 4px;
-	margin-bottom: 25px;
-	padding-right: 10px;
-	overflow: hidden;
-	color: black;
-	text-decoration: none;
-`;
+const Chart = () => ({
+	displayName: 'BarExample',
 
-class Chart extends Component {
-	state = {
-		chartMonth: ''
-	};
-	handleChartChange = (event: SyntheticKeyboardEvent & { target: HTMLInputElement }) => {
-		this.setState({ chartMonth: event.target.value });
-	};
 	render() {
 		return (
-			<Wrapper>
-				<div>
-					<h1>February</h1>
-					<img alt={'Sample Chart'} src={'/public/img/SampleChart.png'} />
-				</div>
-			</Wrapper>
+			<div>
+				<h2>Horizontal Bar Example</h2>
+				<HorizontalBar data={data} />
+			</div>
 		);
 	}
-}
+});
 
 export default Chart;
