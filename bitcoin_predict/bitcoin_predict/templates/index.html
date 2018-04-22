@@ -1,0 +1,27 @@
+{% load static %}
+{% load render_bundle from webpack_loader %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bitcoin Predict</title>
+	<link rel='stylesheet' type="text/css" href="{% static 'public/style.css' %}">
+
+</head>
+<body>
+	<div id="app"></div>
+<!--	<script src="/public/bundle.js"></script-->
+	{% render_bundle 'vendors' %}
+	{% render_bundle 'main' %}
+</body>
+</html>
+
+
+<!--
+
+{% block main %}
+<div id="app></div>
+{% render_bundle 'vendors' %}
+{% render_bundle 'main' %}
+{% endblock %}
+-->
