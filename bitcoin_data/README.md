@@ -1,7 +1,12 @@
 # Extracting Bitcoin price data
 
   ## historical_price.py:
- extracts Bitcoin price prom API http://api.bitcoincharts.com/v1/csv/ and stores on database server to be used to for training prediction model.
-
-  ## price-feed.py:
- pulling real-time Bitcoin current price from API https://api.coindesk.com for rendering price chart
+    - download Bitcoin price csv data zip file prom API http://api.bitcoincharts.com/v1/csv/
+    - create coinbase.db to store historical Bitcoin prices extracted from the csv dataset file
+    - delete the past records in the existing Bitcoin price table and update with new data
+    - System requirements:
+      * python 2.7
+      * matplotlib (py lib)
+      * requests (py lib)
+      * numpy (py lib)
+      * sqlite3

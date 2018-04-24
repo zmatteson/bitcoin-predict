@@ -1,38 +1,73 @@
-import os
-import csv
-import gzip
-import datetime
+import datetime as dt
 
 import requests
-import psycopg2
+import os
+import gzip
+import re
+import requests
+import urllib2
+import sqlite3
+
+API = 'http://api.bitcoincharts.com/v1/csv/'
+
+# File name of coin base exchange data
+FILE_NAME = 'coinbaseUSD.csv.gz'
+
+def main():
+
+	# Download csv file from API
+	print 'Downloading csv '+ FILE_NAME + ' from API....'
+
+	response = requests.get(API + FILE_NAME)
+
+	with open(FILE_NAME, 'wb') as f:
+		f.write(response.content)
+
+	print 'Download complete!'
+
+	# Open zip file and read csv dataset
+	fi = gzip.open( FILE_NAME, 'rb')
+	file_content = fi.read()
+	to_db = []
+	for l in file_content.split('\n'):
+		record =  l.split(',')
+		if len(record)==3:
+			to_db.append((dt.datetime.fromtimestamp(int(record[0])), record[1]))
+		# break
+	fi.close()
 
 
+	def create():
+		# Create a table for data
+	    try:
+	        c.execute("""CREATE TABLE coinbase
+	                 (timestamp, price)""")
+	    except:
+	        pass
 
-url = 'http://api.bitcoincharts.com/v1/csv/btcalphaUSD.csv.gz'
-filename = url.split('/')[-1]
+	def drop():
+		# Drop the table for inserting new data
+	    try:
+	    	print 'Deleting past records....'
+	        c.execute("""DROP TABLE coinbase""")
 
-if not os.path.exists(filename):
-    print("Fetching historical data from api ...")
-    r = requests.get(url, stream=True)
-    with open(filename, 'wb') as fp:
-        for chunk in r.iter_content(chunk_size=1024): 
-            if chunk:
-                fp.write(chunk)
+	    except:
+	        pass
+
+	def insert():
+		# Push data to table
+	    c.executemany("""INSERT INTO coinbase (timestamp, price) VALUES (?, ?);""", to_db)
+	    print 'Database updated!'
+
+	db_path = r'coinbase.db'
+	conn = sqlite3.connect(db_path)
+	c = conn.cursor()
+	drop()
+	create()
+	insert()
+	conn.commit() #commit needed
+	c.close()
 
 
-conn = psycopg2.connect("dbname='btc_price' user='root' host='localhost' password='root'")
-
-cur = conn.cursor()
-cur.execute('drop table if exists btc_price')
-cur.execute('create table btc_price (date timestamp, price real)')
-
-print("Adding price data to the database ...")
-with gzip.open(filename, mode='rb') as fp:
-    reader = csv.reader(fp)
-    for line in reader:
-        date = datetime.datetime.fromtimestamp(int(line[0]))
-        value = float(line[1])
-        cur.execute('insert into btc_price (date, price) values (%s,%s)', args=(date, value))
-        
-conn.commit()
-print("Done")
+if __name__ == '__main__':
+	main()
