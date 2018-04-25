@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 	'bitcoin_predict',
 	'webpack_loader',
     'rest_framework',
+    'channels',
 ]
 
 MIDDLEWARE = [
