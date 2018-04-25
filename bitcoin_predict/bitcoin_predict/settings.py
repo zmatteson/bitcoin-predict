@@ -76,7 +76,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bitcoin_predict.wsgi.application'
 
 # For channel setup
-ASGI_APPLICATION = "myproject.routing.application"
+ASGI_APPLICATION = "bitcoin_predict.routing.application"
 
 
 # Database
