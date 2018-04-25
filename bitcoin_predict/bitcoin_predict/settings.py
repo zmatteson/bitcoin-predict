@@ -75,6 +75,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bitcoin_predict.wsgi.application'
 
+# For channel setup
+ASGI_APPLICATION = "myproject.routing.application"
+
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
