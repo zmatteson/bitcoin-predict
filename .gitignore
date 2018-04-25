@@ -1,3 +1,4 @@
 .vscode
 bitcoin-rnn/data/*
 *.pyc
+bitcoin_predict/*.sqlite3

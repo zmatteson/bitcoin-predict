@@ -8,6 +8,5 @@ from itertools import chain
 
 
 class PriceViewSet(viewsets.ModelViewSet):
-    print(MockPrice.objects.all())
     queryset = MockPrice.objects.all()
     serializer_class = MockPriceSerializer
