@@ -23,6 +23,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 router = routers.DefaultRouter()
 router.register(r'prices', views.PriceViewSet)
+router.register(r'futureprices', views.FuturePriceViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
