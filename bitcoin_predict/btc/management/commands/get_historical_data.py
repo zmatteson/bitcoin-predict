@@ -24,5 +24,10 @@ class Command(BaseCommand):
             reader = csv.reader(fp)
             for line in reader:
                 p = Price(date=datetime.datetime.fromtimestamp(int(line[0])),price=float(line[1]))
-                p.save()
+                self.stdout.write("Adding", str(p), "to database")
+                try:
+                    p.save()
+                except Exception:
+                    self.stdout.write(Exception, "could not add", str(p), "to database")
+                    continue
         self.stdout.write("Done")

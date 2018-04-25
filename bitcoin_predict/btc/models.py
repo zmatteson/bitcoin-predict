@@ -8,3 +8,11 @@ class Price(models.Model):
 
     def __str__(self):
         return str(self.date) + ' ' + str(self.price)
+
+class MockPrice(models.Model):
+
+    date = models.DateField()
+    price = models.FloatField()
+
+    def __str__(self):
+        return str(self.date) + ' ' + str(self.price)

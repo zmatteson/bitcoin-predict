@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'btc',
 	'bitcoin_predict',
 	'webpack_loader',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

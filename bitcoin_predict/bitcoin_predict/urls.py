@@ -15,13 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.conf.urls import url
+from django.conf.urls import url, include
+from rest_framework import routers
+from btc import views
 from django.views import generic 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+router = routers.DefaultRouter()
+router.register(r'prices', views.PriceViewSet)
 
 urlpatterns = [
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('bitcoin_rnn/', include('bitcoin_rnn.urls')),
+    # path('btc/', include('btc.urls')),
     path('admin/', admin.site.urls),
 	url(r'^$',
       generic.TemplateView.as_view(template_name='index.html')),

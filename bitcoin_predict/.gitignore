@@ -11,3 +11,5 @@ _site/
 .sass-cache/
 *.iml
 .idea/
+bitcoin_predict/*.sqlite3
+bitcoin_predict/*.csv.gz
