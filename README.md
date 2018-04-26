@@ -18,7 +18,7 @@ Structure of System
 - Django: 
 
 - React: 
-
+We used React v3 for the front end. 
 - Keras using Tensorflow: 
 
 - Historical Price API:
