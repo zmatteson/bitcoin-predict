@@ -5,7 +5,6 @@ from bitcoin_rnn.models import FuturePrice
 today = datetime.datetime.now()
 yesterday = datetime.datetime.now()-datetime.timedelta(days=1)
 
-
 class PriceTestCase(TestCase):
     def test_prices_have_a_date_and_price(self):
         """MockPrices have a price"""
