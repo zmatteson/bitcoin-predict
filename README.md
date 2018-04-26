@@ -22,5 +22,16 @@ We used React v3 for the front end.
 - Keras using Tensorflow: 
 
 - Historical Price API:
+Download Bitcoin price csv data zip file prom API http://api.bitcoincharts.com/v1/csv/
+    - create coinbase.db to store historical Bitcoin prices extracted from the csv dataset file
+    - delete the past records in the existing Bitcoin price table and update with new data
+    - System requirements:
+      * python 2.7
+      * matplotlib (py lib)
+      * requests (py lib)
+      * numpy (py lib)
+      * sqlite3
 
 - Algorithms: recurrent neural network
+
+
