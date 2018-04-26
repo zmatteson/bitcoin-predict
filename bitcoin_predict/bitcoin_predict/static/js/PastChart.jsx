@@ -21,8 +21,8 @@ class PastChart extends Component {
         let prices;
         let dates;
         if (this.state.chartData) {
-            prices = this.state.chartData.map(dt => dt.price);
-            dates = this.state.chartData.map(dt => dt.date);
+            prices = this.state.chartData.slice(96, 126).map(dt => dt.price);
+            dates = this.state.chartData.slice(96, 126).map(dt => dt.date);
             dates.sort();
             datesRendered = {
                 labels: dates,
@@ -56,7 +56,7 @@ class PastChart extends Component {
         }
         return (
             <div>
-                <h2>Past Prices</h2>
+                <h2>PAST PRICES: MARCH</h2>
                 <Line data={datesRendered} />
             </div>
         );

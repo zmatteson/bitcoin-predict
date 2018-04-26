@@ -23,7 +23,6 @@ class CurrentChart extends Component {
         if (this.state.chartData) {
             prices = this.state.chartData.map(dt => dt.price);
             dates = this.state.chartData.map(dt => dt.date);
-            console.log(this.state.chartData);
             dates.sort();
             datesRendered = {
                 labels: dates,
@@ -57,7 +56,7 @@ class CurrentChart extends Component {
         }
         return (
             <div>
-                <h2>Current Prices</h2>
+                <h2>CURRENT PRICES: APRIL</h2>
                 <Line data={datesRendered} />
             </div>
         );

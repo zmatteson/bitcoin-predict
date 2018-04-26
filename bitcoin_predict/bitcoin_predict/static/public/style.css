@@ -88,6 +88,7 @@ template {
 
 a {
   background-color: transparent;
+  border: 5px;
 }
 
 /**
@@ -482,6 +483,10 @@ html {
 .landing > div {
   margin: 0 auto;
   width: 80%;
+}
+
+.landing > p {
+  font-size:140%;
 }
 
 .landing > a {
