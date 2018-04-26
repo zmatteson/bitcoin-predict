@@ -11,6 +11,7 @@ const App = () => (
 	<BrowserRouter>
 		<div className="app">
 			<Header />
+
 			<div>
 				<Switch>
 					<Route exact path="/" component={Landing} />

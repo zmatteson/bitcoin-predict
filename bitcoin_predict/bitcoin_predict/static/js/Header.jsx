@@ -10,13 +10,13 @@ const Image = styled.img`
 `;
 
 const Header = () => (
-	<header>
-		<Image alt={`BP Logo`} img src="/static/public/img/BPlogo.png" />
-		<h2 to="/"><u>About</u></h2>
-		<h2><u>Current Price</u></h2>
-		<h2><u>Past Prices</u></h2>
-		<h2><u>Future Price Prediction</u></h2>
-	</header>
+    <header>
+        <Image alt={`BP Logo`} src={'/static/public/img/BPlogo.png'} />
+        <h2 to="/"><u>About</u></h2>
+        <h2><u>Current Price</u></h2>
+        <h2><u>Past Prices</u></h2>
+        <h2><u>Future Price Prediction</u></h2>
+    </header>
 );
 
 export default Header;
