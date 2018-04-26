@@ -12,3 +12,15 @@ Each team member took on one large technology to learn. We used React for the fr
 Requirements
 ---------------
 All dependencies found in **bitcoin_predict/package.json** and **bitcoin_predict/bitcoin_predict/settings.py** under "INSTALLED_APPS." Recommended: using a virtualenv
+
+Structure of System
+-------------------
+- Django: 
+
+- React: 
+
+- Keras using Tensorflow: 
+
+- Historical Price API:
+
+- Algorithms: recurrent neural network
