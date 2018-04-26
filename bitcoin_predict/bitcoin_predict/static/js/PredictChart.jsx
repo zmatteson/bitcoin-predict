@@ -56,7 +56,7 @@ class PredictChart extends Component {
         }
         return (
             <div>
-                <h2>Past Prices</h2>
+                <h2>Future Prices</h2>
                 <Line data={datesRendered} />
             </div>
         );
