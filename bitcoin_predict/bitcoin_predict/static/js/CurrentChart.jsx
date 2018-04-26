@@ -12,7 +12,7 @@ class CurrentChart extends Component {
 
     componentDidMount() {
         axios.get('http://127.0.0.1:8000/apiprices/?format=json').then(result => {
-            this.setState({ chartData: result.data });
+            this.setState({ chartData: result.data.slice(122, 153) });
         });
     }
 
@@ -23,6 +23,7 @@ class CurrentChart extends Component {
         if (this.state.chartData) {
             prices = this.state.chartData.map(dt => dt.price);
             dates = this.state.chartData.map(dt => dt.date);
+            console.log(this.state.chartData);
             dates.sort();
             datesRendered = {
                 labels: dates,

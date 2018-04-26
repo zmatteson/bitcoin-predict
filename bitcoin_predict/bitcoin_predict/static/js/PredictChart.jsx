@@ -12,7 +12,7 @@ class PredictChart extends Component {
 
     componentDidMount() {
         axios.get('http://127.0.0.1:8000/apifutureprices/?format=json').then(result => {
-            this.setState({ chartData: result.data });
+            this.setState({ chartData: result.data.slice(155, 167) });
         });
     }
 
