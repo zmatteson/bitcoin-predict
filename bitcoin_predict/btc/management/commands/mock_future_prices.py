@@ -21,5 +21,7 @@ class Command(BaseCommand):
         for dt in daterange(start_dt, end_dt):
             p = MockFuturePrice(date=dt,price=i - random.randint(-30,30))
             p.save()
-            i += 100 - random.randint(-30,30)
+            i += random.randint(-300,300) + 50
+            if i % 3:
+                i -= random.randint(-500,500) - 200
         self.stdout.write('Done!')

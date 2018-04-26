@@ -20,5 +20,7 @@ class Command(BaseCommand):
         for dt in daterange(start_dt, end_dt):
             p = MockPrice(date=dt,price=i)
             p.save()
-            i += 100 - random.randint(-20,20)
+            i += random.randint(-200,200) + 50
+            if i%3:
+                i -= random.randint(-1000,1000) - 200
         self.stdout.write('Done!')
