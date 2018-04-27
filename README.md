@@ -20,7 +20,7 @@ Structure of System
         - bitcoin_predict held the source code for our front end, and the configuration for our project
         - btc managed the Price model and data mocking models, as well as api calls to retrieve Coindesk data
         - bitcoin_rnn managed the FuturePrice model, or predictions.
-        -Additionally, we use the django-webpack-loader and webpack-bundle-tracker apps. Webpack-bundle-tracker is used to emit                  necessary data from the webpack bundles so django-webpack-loader can consume that data, allowing django to host the react                files.
+        - Additionally, we use the django-webpack-loader and webpack-bundle-tracker apps. Webpack-bundle-tracker is used to emit                   necessary data from the webpack bundles so django-webpack-loader can consume that data, allowing django to host the react               files.
 - React: 
 We used React v3 for the front end. 
 - Keras using Tensorflow: 
