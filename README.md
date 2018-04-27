@@ -36,9 +36,9 @@ Download Bitcoin price csv data zip file prom API http://api.bitcoincharts.com/v
       * numpy (py lib)
       * sqlite3
 - Testing
- - Jest for react
- - Puppeteer for acceptance, browser based tests
- - Python's unittest covered the backend
+    - Jest for react
+    - Puppeteer for acceptance, browser based tests
+    - Python's unittest covered the backend
 - Algorithms: 
     - recurrent neural network with dense and long-term short-term memory layers, using the Adam optimizer used to predict Bitcoin prices 
 
